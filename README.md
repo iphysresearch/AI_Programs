@@ -21,7 +21,7 @@
 - [machine_learning_examples](https://github.com/lazyprogrammer/machine_learning_examples)
 > A collection of machine learning examples and tutorials.
 - [Kaggle入门](https://zhuanlan.zhihu.com/p/25686876?utm_medium=social&utm_source=wechat_session&from=groupmessage&isappinstalled=1)
-> [TensorFlow 官方文档中文版](http://wiki.jikexueyuan.com/project/tensorflow-zh/)
+- [TensorFlow 官方文档中文版](http://wiki.jikexueyuan.com/project/tensorflow-zh/)
 
 ### Useful Website
 - [Kaggle](https://www.kaggle.com)
