@@ -8,7 +8,10 @@
 - 
 
 ### Python
-- Python实现文字转语音功能([link](https://github.com/iphysresearch/AI_Programs/tree/master/Python实现文字转语音功能))
+- Python实现文字转语音功能 ([link](https://github.com/iphysresearch/AI_Programs/tree/master/Python实现文字转语音功能))
+
+### Kaggle
+- 2017年房价预测 ([link]())
 
 ### TensorFlow
 - 卷积神经网络CNN原理以及TensorFlow实现（[link](https://github.com/iphysresearch/AI_Programs/tree/master/卷积神经网络CNN原理以及TensorFlow实现)）
@@ -18,6 +21,7 @@
 - [machine_learning_examples](https://github.com/lazyprogrammer/machine_learning_examples)
 > A collection of machine learning examples and tutorials.
 - [Kaggle入门](https://zhuanlan.zhihu.com/p/25686876?utm_medium=social&utm_source=wechat_session&from=groupmessage&isappinstalled=1)
+
 
 ### Useful Website
 - [Kaggle](https://www.kaggle.com)
