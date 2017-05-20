@@ -15,6 +15,7 @@
 
 ### TensorFlow
 - 卷积神经网络CNN原理以及TensorFlow实现（[link](https://github.com/iphysresearch/AI_Programs/tree/master/卷积神经网络CNN原理以及TensorFlow实现)）
+- Tensorflow上搭建RNN的简单例子 ([link](https://github.com/iphysresearch/AI_Programs/tree/master/Tensorflow上搭建RNN的简单例子))
 
 
 ### Reference
