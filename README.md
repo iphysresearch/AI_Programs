@@ -21,9 +21,16 @@
 ### Reference
 - [machine_learning_examples](https://github.com/lazyprogrammer/machine_learning_examples)
 > A collection of machine learning examples and tutorials.
+- [data-science-ipython-notebooks](https://github.com/donnemartin/data-science-ipython-notebooks) 
+> Recently updated with 50 new notebooks! Data science Python notebooks: Deep learning (TensorFlow, Theano, Caffe, Keras), scikit-learn, Kaggle, big data (Spark, Hadoop MapReduce, HDFS), matplotlib, pandas, NumPy, SciPy, Python essentials, AWS, and various command lines.
 - [Kaggle入门](https://zhuanlan.zhihu.com/p/25686876?utm_medium=social&utm_source=wechat_session&from=groupmessage&isappinstalled=1)
 - [TensorFlow 官方文档中文版](http://wiki.jikexueyuan.com/project/tensorflow-zh/)
 
 ### Useful Website
 - [Kaggle](https://www.kaggle.com)
 - [科赛](https://www.kesci.com)
+- [Deep Learning Papers Reading Roadmap](https://github.com/songrotek/Deep-Learning-Papers-Reading-Roadmap)
+- [Awesome - Most Cited Deep Learning Papers](https://github.com/terryum/awesome-deep-learning-papers)
+- [机器学习(Machine Learning)&深度学习(Deep Learning)资料(Chapter 1)](https://github.com/ty4z2008/Qix/blob/master/dl.md)
+- [机器学习(Machine Learning)&深度学习(Deep Learning)资料(Chapter 2)](https://github.com/ty4z2008/Qix/blob/master/dl2.md)
+- [Deep Learning 中文翻译](https://github.com/exacity/deeplearningbook-chinese)
