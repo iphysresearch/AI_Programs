@@ -37,3 +37,5 @@
 - [机器学习(Machine Learning)&深度学习(Deep Learning)资料(Chapter 1)](https://github.com/ty4z2008/Qix/blob/master/dl.md)
 - [机器学习(Machine Learning)&深度学习(Deep Learning)资料(Chapter 2)](https://github.com/ty4z2008/Qix/blob/master/dl2.md)
 - [Deep Learning 中文翻译](https://github.com/exacity/deeplearningbook-chinese)
+- [tensorflow_tutorials - 从基础到稍微更有趣的Tensorflow应用](https://github.com/pkmital/tensorflow_tutorials)
+> From the basics to slightly more interesting applications of Tensorflow
