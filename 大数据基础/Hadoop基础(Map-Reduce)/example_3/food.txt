@@ -1,0 +1,7 @@
+1	1	1	80	egg
+2	2	2	80	cake
+3	3	2	40	milk
+4	4	3	100	chicken
+5	1	3	60	egg
+6	2	4	50	cake
+7	3	4	30	milk
