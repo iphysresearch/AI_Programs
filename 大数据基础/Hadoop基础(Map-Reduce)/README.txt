@@ -1,3 +1,8 @@
+
+
+
+### 练习1：
+
 有如下的数据，其中第一列为用户ID，后面数列为他的朋友ID
 
 A B C D E F 
@@ -17,10 +22,11 @@ J H C F
 B,C A
 D,A E
 
+> # 解答：HW1
+> cat data.txt | python3 mapper.py | python3 reducer.py
 
-# cat data.txt | python3 mapper.py | python3 reducer.py
 
-
+### 练习2:
 编写map-reduce任务完成下列日志处理的问题
 
 用户手机号	出现的地点	出现的时间	逗留的时间 
@@ -40,7 +46,7 @@ D,A E
 333333333  ~~~~~~~ 
 
 
-
+### 练习3:
 有如下格式的日志： 
     id_a, id_b, id_c, id_d 
     id_a, id_a, id_f 
@@ -50,8 +56,7 @@ D,A E
 
 
 
-
-
+### 练习4:
 编写map-reduce任务对电商数据(user_session.data)进行分析：
 文件的格式为 
 	否买(是/否) 数据域(比如DAYOFWEEK):特征id(比如DAYOFWEEK4):特征值(比如1)
