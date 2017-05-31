@@ -15,6 +15,9 @@
 - Spark ([link](https://github.com/iphysresearch/AI_Programs/tree/master/大数据基础/Spark_class))
 
 ### Machine Learning
+- Lecture 1
+- Lecture 2
+- Lecture 3
 
 ### Kaggle
 - 2017年房价预测 ([link]())
