@@ -19,6 +19,10 @@
 - Lecture 2
 - Lecture 3
 
+### Fast.ai - Deep Learning
+- [Lesson 1](https://github.com/iphysresearch/AI_Programs/blob/master/Fast.ai/deeplearning1/nbs/lesson1.ipynb) Getting started with deep learning tools for computer vision (VGG16 model)
+> Python3.5
+
 ### Kaggle
 - 2017年房价预测 ([link]())
 
