@@ -36,6 +36,7 @@
 > A collection of machine learning examples and tutorials.
 - [data-science-ipython-notebooks](https://github.com/donnemartin/data-science-ipython-notebooks) 
 > Recently updated with 50 new notebooks! Data science Python notebooks: Deep learning (TensorFlow, Theano, Caffe, Keras), scikit-learn, Kaggle, big data (Spark, Hadoop MapReduce, HDFS), matplotlib, pandas, NumPy, SciPy, Python essentials, AWS, and various command lines.
+- [Practical Deep Learning For Coders!(Fast.ai)](http://wiki.fast.ai/index.php/Main_Page#FAQs)
 - Tensorflow and deep learning - without a PhD by Martin Görner ([a self-paced code lab](https://codelabs.developers.google.com/codelabs/cloud-tensorflow-mnist/#0))
 > [The RNN code on Github](https://github.com/martin-gorner/tensorflow-rnn-shakespeare)
 - [Kaggle入门](https://zhuanlan.zhihu.com/p/25686876?utm_medium=social&utm_source=wechat_session&from=groupmessage&isappinstalled=1)
