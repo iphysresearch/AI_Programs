@@ -3,7 +3,12 @@ import math, os, json, sys, re
 # On python3.x cPickle has changed from cPickle to _pickle
 # import _pickle as pickle
 # import cPickle as pickle   
-import pickle
+
+# import cPickle as pickle  # Python 2
+import pickle  # Python3
+
+#import six.moves.cPickle as pickle
+
 from glob import glob
 import numpy as np
 from matplotlib import pyplot as plt
@@ -52,6 +57,7 @@ with open(os.path.expanduser('~')+'/.keras/keras.json','w') as f:
     f.write(new_settings)
 import keras
 from keras import backend as K
+K.set_image_dim_ordering('th')  # problem solved for https://github.com/fchollet/keras/issues/3850
 from keras.utils.data_utils import get_file
 from keras.utils import np_utils
 from keras.utils.np_utils import to_categorical
@@ -59,10 +65,17 @@ from keras.models import Sequential, Model
 from keras.layers import Input, Embedding, Reshape, merge, LSTM, Bidirectional
 from keras.layers import TimeDistributed, Activation, SimpleRNN, GRU
 from keras.layers.core import Flatten, Dense, Dropout, Lambda
-from keras.regularizers import l2, activity_l2, l1, activity_l1
+
+# from keras.regularizers import l2, activity_l2, l1, activity_l1  # Keras1
+from keras.regularizers import l2, l1  # Keras2
+
 from keras.layers.normalization import BatchNormalization
 from keras.optimizers import SGD, RMSprop, Adam
-from keras.utils.layer_utils import layer_from_config
+
+# from keras.utils.layer_utils import layer_from_config  # Keras1
+from keras.layers import deserialize  # Keras 2
+from keras.layers.merge import dot, add, concatenate  # Keras2
+
 from keras.metrics import categorical_crossentropy, categorical_accuracy
 from keras.layers.convolutional import *
 from keras.preprocessing import image, sequence
@@ -128,6 +141,7 @@ def onehot(x):
 def wrap_config(layer):
     return {'class_name': layer.__class__.__name__, 'config': layer.get_config()}
 
+def copy_layer(layer): return deserialize(wrap_config(layer))  # Keras2
 
 def copy_layer(layer): return layer_from_config(wrap_config(layer))
 
@@ -145,12 +159,12 @@ def copy_model(m):
     copy_weights(m.layers, res.layers)
     return res
 
-
 def insert_layer(model, new_layer, index):
     res = Sequential()
     for i,layer in enumerate(model.layers):
         if i==index: res.add(new_layer)
-        copied = layer_from_config(wrap_config(layer))
+        #copied = layer_from_config(wrap_config(layer))  # Keras1
+        copied = deserialize(wrap_config(layer))  # Keras2
         res.add(copied)
         copied.set_weights(layer.get_weights())
     return res
@@ -160,10 +174,10 @@ def adjust_dropout(weights, prev_p, new_p):
     scal = (1-prev_p)/(1-new_p)
     return [o*scal for o in weights]
 
-
 def get_data(path, target_size=(224,224)):
     batches = get_batches(path, shuffle=False, batch_size=1, class_mode=None, target_size=target_size)
-    return np.concatenate([batches.next() for i in range(batches.nb_sample)])
+    #return np.concatenate([batches.next() for i in range(batches.nb_sample)])  # Keras1
+    return np.concatenate([batches.next() for i in range(batches.samples)])  # Keras2
 
 
 def plot_confusion_matrix(cm, classes, normalize=False, title='Confusion matrix', cmap=plt.cm.Blues):

@@ -11,7 +11,8 @@ from keras.layers.normalization import BatchNormalization
 from keras.utils.data_utils import get_file
 from keras.models import Sequential
 from keras.layers.core import Flatten, Dense, Dropout, Lambda
-from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2D
+#from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2D  # Keras1
+from keras.layers.convolutional import Conv2D, MaxPooling2D, ZeroPadding2D  # Conv2D: Keras2
 from keras.layers.pooling import GlobalAveragePooling2D
 from keras.optimizers import SGD, RMSprop, Adam
 from keras.preprocessing import image
@@ -93,8 +94,10 @@ class Vgg16():
         model = self.model
         for i in range(layers):
             model.add(ZeroPadding2D((1, 1)))
-            model.add(Convolution2D(filters, 3, 3, activation='relu'))
+            #model.add(Convolution2D(filters, 3, 3, activation='relu'))  # Keras1
+            model.add(Conv2D(filters, kernel_size=(3, 3), activation='relu'))  # Keras2
         model.add(MaxPooling2D((2, 2), strides=(2, 2)))
+        
 
 
     def FCBlock(self):
@@ -170,7 +173,8 @@ class Vgg16():
                 batches : A keras.preprocessing.image.ImageDataGenerator object.
                           See definition for get_batches().
         """
-        self.ft(batches.nb_class)
+        #self.ft(batches.nb_class)  # Keras1
+        self.ft(batches.num_class)  # Keras2
         classes = list(iter(batches.class_indices)) # get a list of all the class labels
         
         # batches.class_indices is a dict with the class name as key and an index as value
@@ -190,23 +194,36 @@ class Vgg16():
         self.model.compile(optimizer=Adam(lr=lr),
                 loss='categorical_crossentropy', metrics=['accuracy'])
 
-
+        
+    # Keras2
+    def test(self, path, batch_size=8):
+        test_batches = self.get_batches(path, shuffle=False, batch_size=batch_size, class_mode=None)
+        return test_batches, self.model.predict_generator(test_batches, int(np.ceil(test_batches.samples/batch_size)))
+    
+    
+    
+    
     def fit_data(self, trn, labels,  val, val_labels,  nb_epoch=1, batch_size=64):
         """
             Trains the model for a fixed number of epochs (iterations on a dataset).
             See Keras documentation: https://keras.io/models/model/
         """
-        self.model.fit(trn, labels, nb_epoch=nb_epoch,
-                validation_data=(val, val_labels), batch_size=batch_size)
+        #self.model.fit(trn, labels, nb_epoch=nb_epoch,
+        #        validation_data=(val, val_labels), batch_size=batch_size)   # Keras1
+        self.model.fit(trn, labels, epochs=nb_epoch,
+                validation_data=(val, val_labels), batch_size=batch_size)  # Keras2
 
 
-    def fit(self, batches, val_batches, nb_epoch=1):
+    #def fit(self, batches, val_batches, nb_epoch=1):  # Keras1
+    def fit(self, batches, val_batches, batch_size, nb_epoch=1):  # Keras2
         """
             Fits the model on data yielded batch-by-batch by a Python generator.
             See Keras documentation: https://keras.io/models/model/
         """
-        self.model.fit_generator(batches, samples_per_epoch=batches.nb_sample, nb_epoch=nb_epoch,
-                validation_data=val_batches, nb_val_samples=val_batches.nb_sample)
+        #self.model.fit_generator(batches, samples_per_epoch=batches.nb_sample, nb_epoch=nb_epoch,   # Keras1
+        #        validation_data=val_batches, nb_val_samples=val_batches.nb_sample)
+        self.model.fit_generator(batches, steps_per_epoch=int(np.ceil(batches.samples/batch_size)), epochs=nb_epoch,   # Keras2
+                validation_data=val_batches, validation_steps=int(np.ceil(val_batches.samples/batch_size)))
 
 
     def test(self, path, batch_size=8):
@@ -223,5 +240,5 @@ class Vgg16():
     
         """
         test_batches = self.get_batches(path, shuffle=False, batch_size=batch_size, class_mode=None)
-        return test_batches, self.model.predict_generator(test_batches, test_batches.nb_sample)
-
+        #return test_batches, self.model.predict_generator(test_batches, test_batches.nb_sample)  # Keras1
+        return test_batches, self.model.predict_generator(test_batches, int(np.ceil(test_batches.samples/batch_size)))  # Keras2
