@@ -54,3 +54,4 @@
 - [Deep Learning 中文翻译](https://github.com/exacity/deeplearningbook-chinese)
 - [tensorflow_tutorials - 从基础到稍微更有趣的Tensorflow应用](https://github.com/pkmital/tensorflow_tutorials)
 > From the basics to slightly more interesting applications of Tensorflow
+- [An Interactive Node-Link Visualization of Convolutional Neural Networks (ISVC 2015)](http://scs.ryerson.ca/~aharley/vis/conv/)
