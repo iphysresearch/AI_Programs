@@ -50,7 +50,7 @@ class Vgg16BN():
 
     def ConvBlock(self, layers, filters):
         model = self.model
-        for i in range(layers):
+        for _ in range(layers):
             model.add(ZeroPadding2D((1, 1)))
             model.add(Convolution2D(filters, 3, 3, activation='relu'))
         model.add(MaxPooling2D((2, 2), strides=(2, 2)))
