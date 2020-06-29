@@ -92,7 +92,7 @@ class Vgg16():
                                 created for each layer.
         """
         model = self.model
-        for i in range(layers):
+        for _ in range(layers):
             model.add(ZeroPadding2D((1, 1)))
             #model.add(Convolution2D(filters, 3, 3, activation='relu'))  # Keras1
             model.add(Conv2D(filters, kernel_size=(3, 3), activation='relu'))  # Keras2
